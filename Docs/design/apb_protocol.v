@@ -3,9 +3,9 @@ module apb_protocol(
     input PRESETn,
     input transfer,
     input READ_WRITE,
-    input [8:0] apb_write_paddr,
+    input [7:0] apb_write_paddr,
     input [7:0] apb_write_data,
-    input [8:0] apb_read_paddr,
+    input [7:0] apb_read_paddr,
 
     output [7:0] apb_read_data_out
 );
@@ -14,7 +14,7 @@ wire PWRITE;
 wire PSEL1;
 wire PSEL2;
 wire PENABLE;
-wire [8:0] PADDR;
+wire [7:0] PADDR;
 wire [7:0] PWDATA;
 
 wire [7:0] PRDATA1;
