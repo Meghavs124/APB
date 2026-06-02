@@ -1,3 +1,23 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 31.05.2026 21:08:41
+// Design Name: 
+// Module Name: APB_master
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 module APB_master(
 	input PCLK,
 	input PRESETn,
@@ -17,9 +37,9 @@ module APB_master(
 	output [7:0] apb_read_data_out
 );
 
-parameter IDLE=2'b00, SETUP=2'b01, ACCESS=2'b10;
+parameter IDLE=3'b001, SETUP=3'b010, ACCESS=3'b100;
 
-reg [1:0]c_state,n_state;
+reg [2:0]c_state,n_state;
 
 always @(posedge PCLK or negedge PRESETn)
 begin
@@ -157,4 +177,5 @@ end
 
 assign apb_read_data_out = PRDATA;
 
-endmodule	
+endmodule		
+
